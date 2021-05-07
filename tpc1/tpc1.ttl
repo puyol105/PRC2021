@@ -1,0 +1,1214 @@
+@prefix : <http://www.di.uminho.pt/prc2021/tpc1.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/tpc1.ttl> .
+
+<http://www.di.uminho.pt/prc2021/tpc1.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#ensina
+<http://www.di.uminho.pt/prc2021/uc#ensina> rdf:type owl:ObjectProperty ;
+                                            owl:inverseOf <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> ;
+                                            rdfs:domain <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                            rdfs:range <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#frequenta
+<http://www.di.uminho.pt/prc2021/uc#frequenta> rdf:type owl:ObjectProperty ;
+                                               owl:inverseOf <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> ;
+                                               rdfs:domain <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                               rdfs:range <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éAlunoDe
+<http://www.di.uminho.pt/prc2021/uc#éAlunoDe> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor
+<http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor
+<http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éProfessorDe
+<http://www.di.uminho.pt/prc2021/uc#éProfessorDe> rdf:type owl:ObjectProperty ;
+                                                  owl:propertyChainAxiom ( <http://www.di.uminho.pt/prc2021/uc#ensina>
+                                                                           <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor>
+                                                                         ) .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#anoLetivo
+<http://www.di.uminho.pt/prc2021/uc#anoLetivo> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#designação
+<http://www.di.uminho.pt/prc2021/uc#designação> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#nome
+<http://www.di.uminho.pt/prc2021/uc#nome> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#Aluno
+<http://www.di.uminho.pt/prc2021/uc#Aluno> rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.di.uminho.pt/prc2021/uc#frequenta> ;
+                                                             owl:someValuesFrom <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular>
+                                                           ] .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#Professor
+<http://www.di.uminho.pt/prc2021/uc#Professor> rdf:type owl:Class ;
+                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.di.uminho.pt/prc2021/uc#ensina> ;
+                                                                 owl:someValuesFrom <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular>
+                                                               ] .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular
+<http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#CP
+<http://www.di.uminho.pt/prc2021/uc#CP> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#10> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#100> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#120> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#160> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#190> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#250> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#280> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#290> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#330> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#350> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#380> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#40> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#430> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#450> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#470> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#480> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#490> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#50> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#510> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#60> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#610> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#620> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#660> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#690> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#70> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#710> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#720> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#860> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#870> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#940> ,
+                                                                                             <http://www.di.uminho.pt/prc2021/uc#990> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                        <http://www.di.uminho.pt/prc2021/uc#designação> "Computação Paralela" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#GCS
+<http://www.di.uminho.pt/prc2021/uc#GCS> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#140> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#180> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#220> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#340> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#600> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#630> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#640> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#670> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#700> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#730> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#770> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#780> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#840> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#900> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#950> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#960> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                         <http://www.di.uminho.pt/prc2021/uc#designação> "Gramáticas na Compreensão de Software" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#PRC
+<http://www.di.uminho.pt/prc2021/uc#PRC> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#0> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#130> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#150> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#170> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#210> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#240> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#270> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#410> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#420> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#590> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#750> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#760> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#790> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#890> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#910> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#930> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#970> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#980> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                         <http://www.di.uminho.pt/prc2021/uc#designação> "Processamento e Representação de Conhecimento" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#PRC2021
+<http://www.di.uminho.pt/prc2021/uc#PRC2021> rdf:type owl:NamedIndividual ,
+                                                      <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                             <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                             <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#alindo> ,
+                                                                                                  <http://www.di.uminho.pt/prc2021/uc#helena> ;
+                                             <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                             <http://www.di.uminho.pt/prc2021/uc#designação> "Processamento e Representação de Conhecimento" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#SPLN
+<http://www.di.uminho.pt/prc2021/uc#SPLN> rdf:type owl:NamedIndividual ,
+                                                   <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                          <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                          <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#260> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#30> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#310> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#320> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#360> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#390> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#440> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#460> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#540> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#550> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#570> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#680> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#740> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#810> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#880> ,
+                                                                                               <http://www.di.uminho.pt/prc2021/uc#920> ;
+                                          <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                          <http://www.di.uminho.pt/prc2021/uc#designação> "Scripting no Processamento de Linguagem Natural" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#SPLN2021
+<http://www.di.uminho.pt/prc2021/uc#SPLN2021> rdf:type owl:NamedIndividual ,
+                                                       <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                              <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                              <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#alindo> ,
+                                                                                                   <http://www.di.uminho.pt/prc2021/uc#helena> ;
+                                              <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                              <http://www.di.uminho.pt/prc2021/uc#designação> "Scripting..." .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#VI1
+<http://www.di.uminho.pt/prc2021/uc#VI1> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#UnidadeCurricular> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éEnsinadoPor> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor> <http://www.di.uminho.pt/prc2021/uc#110> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#20> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#200> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#230> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#300> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#370> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#400> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#500> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#520> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#530> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#560> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#580> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#650> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#80> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#800> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#820> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#830> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#850> ,
+                                                                                              <http://www.di.uminho.pt/prc2021/uc#90> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "2020/2021" ;
+                                         <http://www.di.uminho.pt/prc2021/uc#designação> "Visualização e Iluminação I" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#alindo
+<http://www.di.uminho.pt/prc2021/uc#alindo> rdf:type owl:NamedIndividual ,
+                                                     <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC2021> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#SPLN2021> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#nome> "Arlindo Lindo" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#arf
+<http://www.di.uminho.pt/prc2021/uc#arf> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#ensina> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> <http://www.di.uminho.pt/prc2021/uc#110> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#20> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#200> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#230> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#300> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#370> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#400> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#500> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#520> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#530> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#560> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#580> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#650> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#80> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#800> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#820> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#830> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#850> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#90> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "António Ramires" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#helena
+<http://www.di.uminho.pt/prc2021/uc#helena> rdf:type owl:NamedIndividual ,
+                                                     <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC2021> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#SPLN2021> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                            <http://www.di.uminho.pt/prc2021/uc#nome> "Helena Martins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jcr
+<http://www.di.uminho.pt/prc2021/uc#jcr> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#ensina> <http://www.di.uminho.pt/prc2021/uc#PRC> ,
+                                                                                     <http://www.di.uminho.pt/prc2021/uc#PRC2021> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> <http://www.di.uminho.pt/prc2021/uc#alindo> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#helena> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#0> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#130> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#150> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#170> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#210> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#240> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#270> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#410> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#420> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#590> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#750> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#760> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#790> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#890> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#910> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#930> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#970> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#980> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "José Carlos Ramalho" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jj
+<http://www.di.uminho.pt/prc2021/uc#jj> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#ensina> <http://www.di.uminho.pt/prc2021/uc#SPLN> ,
+                                                                                    <http://www.di.uminho.pt/prc2021/uc#SPLN2021> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> <http://www.di.uminho.pt/prc2021/uc#alindo> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#helena> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#260> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#30> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#310> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#320> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#360> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#390> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#440> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#460> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#540> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#550> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#570> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#680> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#740> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#810> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#880> ,
+                                                                                          <http://www.di.uminho.pt/prc2021/uc#920> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "José João" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jls
+<http://www.di.uminho.pt/prc2021/uc#jls> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#ensina> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> <http://www.di.uminho.pt/prc2021/uc#10> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#100> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#120> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#160> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#190> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#250> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#280> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#290> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#330> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#350> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#380> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#40> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#430> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#450> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#470> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#480> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#490> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#50> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#510> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#60> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#610> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#620> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#660> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#690> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#70> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#710> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#720> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#860> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#870> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#940> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#990> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "João Luís Sobral" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#prh
+<http://www.di.uminho.pt/prc2021/uc#prh> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Professor> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#ensina> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éProfessorDe> <http://www.di.uminho.pt/prc2021/uc#140> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#180> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#220> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#340> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#600> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#630> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#640> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#670> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#700> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#730> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#770> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#780> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#840> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#900> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#950> ,
+                                                                                           <http://www.di.uminho.pt/prc2021/uc#960> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Pedro Rangel Henriques" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#0
+<http://www.di.uminho.pt/prc2021/uc#0> rdf:type owl:NamedIndividual ,
+                                                <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                       <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                       <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                       <http://www.di.uminho.pt/prc2021/uc#nome> "Barber Park" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#10
+<http://www.di.uminho.pt/prc2021/uc#10> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Dina Sawyer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#100
+<http://www.di.uminho.pt/prc2021/uc#100> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Dorsey Pace" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#110
+<http://www.di.uminho.pt/prc2021/uc#110> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Angelique Cotton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#120
+<http://www.di.uminho.pt/prc2021/uc#120> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Gray Greer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#130
+<http://www.di.uminho.pt/prc2021/uc#130> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Reynolds Dixon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#140
+<http://www.di.uminho.pt/prc2021/uc#140> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Barrera Roman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#150
+<http://www.di.uminho.pt/prc2021/uc#150> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Jami Brady" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#160
+<http://www.di.uminho.pt/prc2021/uc#160> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Walls Bird" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#170
+<http://www.di.uminho.pt/prc2021/uc#170> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Singleton Hahn" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#180
+<http://www.di.uminho.pt/prc2021/uc#180> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Chapman Lawson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#190
+<http://www.di.uminho.pt/prc2021/uc#190> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Harris Cross" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#20
+<http://www.di.uminho.pt/prc2021/uc#20> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Elsa Cash" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#200
+<http://www.di.uminho.pt/prc2021/uc#200> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Keith Cantu" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#210
+<http://www.di.uminho.pt/prc2021/uc#210> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Obrien Harrison" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#220
+<http://www.di.uminho.pt/prc2021/uc#220> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Pope Ayers" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#230
+<http://www.di.uminho.pt/prc2021/uc#230> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Travis Monroe" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#240
+<http://www.di.uminho.pt/prc2021/uc#240> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Anderson Erickson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#250
+<http://www.di.uminho.pt/prc2021/uc#250> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Margret Bentley" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#260
+<http://www.di.uminho.pt/prc2021/uc#260> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Perkins Best" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#270
+<http://www.di.uminho.pt/prc2021/uc#270> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Ross Wilkinson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#280
+<http://www.di.uminho.pt/prc2021/uc#280> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Lolita Watts" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#290
+<http://www.di.uminho.pt/prc2021/uc#290> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Neva Chen" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#30
+<http://www.di.uminho.pt/prc2021/uc#30> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Avila Rush" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#300
+<http://www.di.uminho.pt/prc2021/uc#300> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Velasquez Meyer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#310
+<http://www.di.uminho.pt/prc2021/uc#310> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Love Williams" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#320
+<http://www.di.uminho.pt/prc2021/uc#320> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Schwartz Whitaker" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#330
+<http://www.di.uminho.pt/prc2021/uc#330> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Paul Richard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#340
+<http://www.di.uminho.pt/prc2021/uc#340> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Ida Hayes" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#350
+<http://www.di.uminho.pt/prc2021/uc#350> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Bridgett Dalton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#360
+<http://www.di.uminho.pt/prc2021/uc#360> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Bonita Pate" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#370
+<http://www.di.uminho.pt/prc2021/uc#370> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Stephenson Gill" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#380
+<http://www.di.uminho.pt/prc2021/uc#380> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Callahan Kidd" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#390
+<http://www.di.uminho.pt/prc2021/uc#390> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Flowers Anderson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#40
+<http://www.di.uminho.pt/prc2021/uc#40> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Sloan Berger" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#400
+<http://www.di.uminho.pt/prc2021/uc#400> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Ruby Grimes" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#410
+<http://www.di.uminho.pt/prc2021/uc#410> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Alejandra Carrillo" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#420
+<http://www.di.uminho.pt/prc2021/uc#420> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Letha Fowler" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#430
+<http://www.di.uminho.pt/prc2021/uc#430> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Lancaster Peterson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#440
+<http://www.di.uminho.pt/prc2021/uc#440> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Leach Montoya" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#450
+<http://www.di.uminho.pt/prc2021/uc#450> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Case Stewart" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#460
+<http://www.di.uminho.pt/prc2021/uc#460> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Todd Durham" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#470
+<http://www.di.uminho.pt/prc2021/uc#470> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Franklin Gilliam" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#480
+<http://www.di.uminho.pt/prc2021/uc#480> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Rosanna Wong" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#490
+<http://www.di.uminho.pt/prc2021/uc#490> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Roslyn Butler" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#50
+<http://www.di.uminho.pt/prc2021/uc#50> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Francesca Mayer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#500
+<http://www.di.uminho.pt/prc2021/uc#500> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Gwen Warren" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#510
+<http://www.di.uminho.pt/prc2021/uc#510> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Parrish Lee" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#520
+<http://www.di.uminho.pt/prc2021/uc#520> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Melody Shelton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#530
+<http://www.di.uminho.pt/prc2021/uc#530> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Arnold Donovan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#540
+<http://www.di.uminho.pt/prc2021/uc#540> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Sandoval Matthews" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#550
+<http://www.di.uminho.pt/prc2021/uc#550> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Wilkinson Hansen" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#560
+<http://www.di.uminho.pt/prc2021/uc#560> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Letitia Owen" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#570
+<http://www.di.uminho.pt/prc2021/uc#570> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Gibson Foster" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#580
+<http://www.di.uminho.pt/prc2021/uc#580> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Campos Woodard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#590
+<http://www.di.uminho.pt/prc2021/uc#590> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Estela Berg" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#60
+<http://www.di.uminho.pt/prc2021/uc#60> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Barry Foley" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#600
+<http://www.di.uminho.pt/prc2021/uc#600> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Candice Greene" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#610
+<http://www.di.uminho.pt/prc2021/uc#610> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Maria Wooten" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#620
+<http://www.di.uminho.pt/prc2021/uc#620> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Key Livingston" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#630
+<http://www.di.uminho.pt/prc2021/uc#630> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Fleming Rodriguez" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#640
+<http://www.di.uminho.pt/prc2021/uc#640> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Maxwell Sellers" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#650
+<http://www.di.uminho.pt/prc2021/uc#650> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Aimee Ingram" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#660
+<http://www.di.uminho.pt/prc2021/uc#660> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Cain Sims" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#670
+<http://www.di.uminho.pt/prc2021/uc#670> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Esmeralda Moran" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#680
+<http://www.di.uminho.pt/prc2021/uc#680> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Bond Dejesus" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#690
+<http://www.di.uminho.pt/prc2021/uc#690> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Daugherty Franks" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#70
+<http://www.di.uminho.pt/prc2021/uc#70> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Charity Holder" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#700
+<http://www.di.uminho.pt/prc2021/uc#700> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Desiree Howe" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#710
+<http://www.di.uminho.pt/prc2021/uc#710> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Pittman Valentine" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#720
+<http://www.di.uminho.pt/prc2021/uc#720> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Jordan Thomas" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#730
+<http://www.di.uminho.pt/prc2021/uc#730> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Candy Adkins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#740
+<http://www.di.uminho.pt/prc2021/uc#740> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Penny Morgan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#750
+<http://www.di.uminho.pt/prc2021/uc#750> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Hattie Stark" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#760
+<http://www.di.uminho.pt/prc2021/uc#760> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Luella Owens" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#770
+<http://www.di.uminho.pt/prc2021/uc#770> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Monica Mercado" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#780
+<http://www.di.uminho.pt/prc2021/uc#780> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Woods Lindsay" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#790
+<http://www.di.uminho.pt/prc2021/uc#790> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Booker Dotson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#80
+<http://www.di.uminho.pt/prc2021/uc#80> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Corrine Camacho" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#800
+<http://www.di.uminho.pt/prc2021/uc#800> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Finch Hines" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#810
+<http://www.di.uminho.pt/prc2021/uc#810> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Whitney Yates" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#820
+<http://www.di.uminho.pt/prc2021/uc#820> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Holmes Hudson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#830
+<http://www.di.uminho.pt/prc2021/uc#830> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Rosalind Reed" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#840
+<http://www.di.uminho.pt/prc2021/uc#840> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Strong Fernandez" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#850
+<http://www.di.uminho.pt/prc2021/uc#850> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Annabelle West" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#860
+<http://www.di.uminho.pt/prc2021/uc#860> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Dollie Love" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#870
+<http://www.di.uminho.pt/prc2021/uc#870> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Robyn Price" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#880
+<http://www.di.uminho.pt/prc2021/uc#880> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Lidia Howard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#890
+<http://www.di.uminho.pt/prc2021/uc#890> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Nita Arnold" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#90
+<http://www.di.uminho.pt/prc2021/uc#90> rdf:type owl:NamedIndividual ,
+                                                 <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#VI1> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#arf> ;
+                                        <http://www.di.uminho.pt/prc2021/uc#nome> "Horn Rosales" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#900
+<http://www.di.uminho.pt/prc2021/uc#900> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "English Herrera" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#910
+<http://www.di.uminho.pt/prc2021/uc#910> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Tabitha Gentry" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#920
+<http://www.di.uminho.pt/prc2021/uc#920> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#SPLN> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jj> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Serena Quinn" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#930
+<http://www.di.uminho.pt/prc2021/uc#930> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Daphne Fry" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#940
+<http://www.di.uminho.pt/prc2021/uc#940> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Duke England" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#950
+<http://www.di.uminho.pt/prc2021/uc#950> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Cecile Bradford" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#960
+<http://www.di.uminho.pt/prc2021/uc#960> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#GCS> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#prh> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Alana Mcgowan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#970
+<http://www.di.uminho.pt/prc2021/uc#970> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Burks Dodson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#980
+<http://www.di.uminho.pt/prc2021/uc#980> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#PRC> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jcr> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "Katheryn Wright" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#990
+<http://www.di.uminho.pt/prc2021/uc#990> rdf:type owl:NamedIndividual ,
+                                                  <http://www.di.uminho.pt/prc2021/uc#Aluno> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#frequenta> <http://www.di.uminho.pt/prc2021/uc#CP> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#éAlunoDe> <http://www.di.uminho.pt/prc2021/uc#jls> ;
+                                         <http://www.di.uminho.pt/prc2021/uc#nome> "May Wiggins" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

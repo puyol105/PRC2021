@@ -1,0 +1,558 @@
+{
+  "alunos": [
+    {
+      "_id": 0,
+      "nome": "Barber Park",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 10,
+      "nome": "Dina Sawyer",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 20,
+      "nome": "Elsa Cash",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 30,
+      "nome": "Avila Rush",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 40,
+      "nome": "Sloan Berger",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 50,
+      "nome": "Francesca Mayer",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 60,
+      "nome": "Barry Foley",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 70,
+      "nome": "Charity Holder",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 80,
+      "nome": "Corrine Camacho",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 90,
+      "nome": "Horn Rosales",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 100,
+      "nome": "Dorsey Pace",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 110,
+      "nome": "Angelique Cotton",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 120,
+      "nome": "Gray Greer",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 130,
+      "nome": "Reynolds Dixon",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 140,
+      "nome": "Barrera Roman",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 150,
+      "nome": "Jami Brady",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 160,
+      "nome": "Walls Bird",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 170,
+      "nome": "Singleton Hahn",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 180,
+      "nome": "Chapman Lawson",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 190,
+      "nome": "Harris Cross",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 200,
+      "nome": "Keith Cantu",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 210,
+      "nome": "Obrien Harrison",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 220,
+      "nome": "Pope Ayers",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 230,
+      "nome": "Travis Monroe",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 240,
+      "nome": "Anderson Erickson",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 250,
+      "nome": "Margret Bentley",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 260,
+      "nome": "Perkins Best",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 270,
+      "nome": "Ross Wilkinson",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 280,
+      "nome": "Lolita Watts",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 290,
+      "nome": "Neva Chen",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 300,
+      "nome": "Velasquez Meyer",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 310,
+      "nome": "Love Williams",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 320,
+      "nome": "Schwartz Whitaker",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 330,
+      "nome": "Paul Richard",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 340,
+      "nome": "Ida Hayes",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 350,
+      "nome": "Bridgett Dalton",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 360,
+      "nome": "Bonita Pate",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 370,
+      "nome": "Stephenson Gill",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 380,
+      "nome": "Callahan Kidd",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 390,
+      "nome": "Flowers Anderson",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 400,
+      "nome": "Ruby Grimes",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 410,
+      "nome": "Alejandra Carrillo",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 420,
+      "nome": "Letha Fowler",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 430,
+      "nome": "Lancaster Peterson",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 440,
+      "nome": "Leach Montoya",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 450,
+      "nome": "Case Stewart",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 460,
+      "nome": "Todd Durham",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 470,
+      "nome": "Franklin Gilliam",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 480,
+      "nome": "Rosanna Wong",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 490,
+      "nome": "Roslyn Butler",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 500,
+      "nome": "Gwen Warren",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 510,
+      "nome": "Parrish Lee",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 520,
+      "nome": "Melody Shelton",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 530,
+      "nome": "Arnold Donovan",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 540,
+      "nome": "Sandoval Matthews",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 550,
+      "nome": "Wilkinson Hansen",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 560,
+      "nome": "Letitia Owen",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 570,
+      "nome": "Gibson Foster",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 580,
+      "nome": "Campos Woodard",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 590,
+      "nome": "Estela Berg",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 600,
+      "nome": "Candice Greene",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 610,
+      "nome": "Maria Wooten",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 620,
+      "nome": "Key Livingston",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 630,
+      "nome": "Fleming Rodriguez",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 640,
+      "nome": "Maxwell Sellers",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 650,
+      "nome": "Aimee Ingram",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 660,
+      "nome": "Cain Sims",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 670,
+      "nome": "Esmeralda Moran",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 680,
+      "nome": "Bond Dejesus",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 690,
+      "nome": "Daugherty Franks",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 700,
+      "nome": "Desiree Howe",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 710,
+      "nome": "Pittman Valentine",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 720,
+      "nome": "Jordan Thomas",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 730,
+      "nome": "Candy Adkins",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 740,
+      "nome": "Penny Morgan",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 750,
+      "nome": "Hattie Stark",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 760,
+      "nome": "Luella Owens",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 770,
+      "nome": "Monica Mercado",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 780,
+      "nome": "Woods Lindsay",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 790,
+      "nome": "Booker Dotson",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 800,
+      "nome": "Finch Hines",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 810,
+      "nome": "Whitney Yates",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 820,
+      "nome": "Holmes Hudson",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 830,
+      "nome": "Rosalind Reed",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 840,
+      "nome": "Strong Fernandez",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 850,
+      "nome": "Annabelle West",
+      "frequenta": "VI1"
+    },
+    {
+      "_id": 860,
+      "nome": "Dollie Love",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 870,
+      "nome": "Robyn Price",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 880,
+      "nome": "Lidia Howard",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 890,
+      "nome": "Nita Arnold",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 900,
+      "nome": "English Herrera",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 910,
+      "nome": "Tabitha Gentry",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 920,
+      "nome": "Serena Quinn",
+      "frequenta": "SPLN"
+    },
+    {
+      "_id": 930,
+      "nome": "Daphne Fry",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 940,
+      "nome": "Duke England",
+      "frequenta": "CP"
+    },
+    {
+      "_id": 950,
+      "nome": "Cecile Bradford",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 960,
+      "nome": "Alana Mcgowan",
+      "frequenta": "GCS"
+    },
+    {
+      "_id": 970,
+      "nome": "Burks Dodson",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 980,
+      "nome": "Katheryn Wright",
+      "frequenta": "PRC"
+    },
+    {
+      "_id": 990,
+      "nome": "May Wiggins",
+      "frequenta": "CP"
+    }
+  ],
+  "ucs": [
+    {
+      "id": "SPLN",
+      "designação": "Scripting no Processamento de Linguagem Natural",
+      "anoLetivo": "2020/2021"
+    },
+    {
+      "id": "PRC",
+      "designação": "Processamento e Representação de Conhecimento",
+      "anoLetivo": "2020/2021"
+    },
+    {
+      "id": "GCS",
+      "designação": "Gramáticas na Compreensão de Software",
+      "anoLetivo": "2020/2021"
+    },
+    {
+      "id": "VI1",
+      "designação": "Visualização e Iluminação I",
+      "anoLetivo": "2020/2021"
+    },
+    {
+      "id": "CP",
+      "designação": "Computação Paralela",
+      "anoLetivo": "2020/2021"
+    }
+  ],
+  "docentes": [
+    {
+      "id": "jj",
+      "nome": "José João",
+      "ensina": "SPLN"
+    },
+    {
+      "id": "jcr",
+      "nome": "José Carlos Ramalho",
+      "ensina": "PRC"
+    },
+    {
+      "id": "prh",
+      "nome": "Pedro Rangel Henriques",
+      "ensina": "GCS"
+    },
+    {
+      "id": "arf",
+      "nome": "António Ramires",
+      "ensina": "VI1"
+    },
+    {
+      "id": "jls",
+      "nome": "João Luís Sobral",
+      "ensina": "CP"
+    }
+  ]
+}
