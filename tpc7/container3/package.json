@@ -1,0 +1,14 @@
+{
+  "name": "jserver-clav",
+  "version": "1.0.0",
+  "description": "",
+  "main": "get_request.js",
+  "scripts": {
+    "start": "node get_request.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
