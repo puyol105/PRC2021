@@ -1,0 +1,57 @@
+
+
+---- 1 --- Quantos filmes estão registados?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select (count(?s) as ?n) where { 
+	?s a :Filme  .
+} limit 100 
+
+
+---- 2 --- Quantos filmes foram realizados em 1994?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select (count(?n) as ?ns) where { 
+    ?s a :Filme .
+   	?s :year ?n .
+    filter(?n = 1994)
+} 
+
+---- 3 --- Quantos filmes tiveram a participação de Dan Aykroyd?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select (count(?n) as ?ns) where { 
+    ?s a :Filme .
+    ?s :temAtor/:nome ?n .
+    filter(?n = 'Dan Aykroyd')
+}
+
+
+---- 4 --- Qual a distribuição dos filmes por ano?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select ?n (count(?n) as ?ns) where { 
+    ?s a ?Filme .
+    ?s :year ?n .
+} group by ?n
+
+
+---- 5 --- Qual a distribuição de filmes por género?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select ?n (count(?n) as ?ns) where { 
+    ?s a ?Filme ;
+    :temGenero ?a .
+    ?a :nome ?n .
+    
+} group by ?n
+
+---- 6 --- Quais os títulos dos filmes, em ordem alfabética, que têm a participação de Keanu Reeves?
+
+PREFIX : <http://www.semanticweb.org/puyol/ontologies/movies#>
+select ?n where { 
+    ?s a :Filme .
+   	?s :temAtor/:nome ?a .
+    ?s :title ?n .
+    filter(?a = 'Keanu Reeves')
+} ORDER BY ASC(?n)
